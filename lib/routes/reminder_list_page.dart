@@ -28,7 +28,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
     reminderRepository.getReminderList().then((value) {
       setState(() {
         reminders = value;
-        reminders.sort((a, b) {
+        reminders.sort((b, a) {
           return DateTime.parse((b.dateTime).toIso8601String())
               .compareTo(DateTime.parse((a.dateTime).toIso8601String()));
         });
