@@ -39,6 +39,10 @@ dependencies:
   intl:
   flutter_slidable: ^2.0.0
   shared_preferences: ^2.0.15
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding
+      path: plugins/window_size
 
 dev_dependencies:
   flutter_test:

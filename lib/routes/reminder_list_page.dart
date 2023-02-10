@@ -28,6 +28,10 @@ class _ReminderListPageState extends State<ReminderListPage> {
     reminderRepository.getReminderList().then((value) {
       setState(() {
         reminders = value;
+        reminders.sort((a, b) {
+          return DateTime.parse((b.dateTime).toIso8601String())
+              .compareTo(DateTime.parse((a.dateTime).toIso8601String()));
+        });
       });
     });
   }
@@ -74,7 +78,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                         ),
                         cursorColor: Color(0xffffffff).withOpacity(0.5),
                         style:
-                        TextStyle(fontSize: 18, color: Color(0xffffffff)),
+                            TextStyle(fontSize: 18, color: Color(0xffffffff)),
                       ),
                     ),
                     SizedBox(
@@ -146,7 +150,14 @@ class _ReminderListPageState extends State<ReminderListPage> {
                                     builder: (context) =>
                                         ReminderTextPage(reminder: reminder),
                                   ),
-                                );
+                                ).then((_) => setState(() {
+                                      reminders.sort((b, a) {
+                                        return DateTime.parse(
+                                                (b.dateTime).toIso8601String())
+                                            .compareTo(DateTime.parse(
+                                                (a.dateTime).toIso8601String()));
+                                      });
+                                    }));
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xff3a3a3a),
@@ -155,7 +166,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                                 padding: const EdgeInsets.all(16),
                                 child: Column(
                                   crossAxisAlignment:
-                                  CrossAxisAlignment.stretch,
+                                      CrossAxisAlignment.stretch,
                                   children: [
                                     Text(
                                       DateFormat('dd/MM/yyyy - HH:mm')
@@ -185,15 +196,6 @@ class _ReminderListPageState extends State<ReminderListPage> {
                 SizedBox(height: 16),
                 Row(
                   children: [
-                    Expanded(
-                      child: Text(
-                        'Lembretes: ${reminders.length}',
-                        style: TextStyle(
-                          color: Color(0xffffffff),
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
                     SizedBox(width: 8),
                     ElevatedButton(
                       onPressed: showDeleteAllConfirmationDialog,

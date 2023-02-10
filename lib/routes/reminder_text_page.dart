@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reminders_flutter/models/reminder.dart';
-import 'package:reminders_flutter/routes/reminder_list_page.dart';
 
 class ReminderTextPage extends StatefulWidget {
   ReminderTextPage({super.key, required this.reminder});
@@ -38,6 +37,7 @@ class _ReminderTextPageState extends State<ReminderTextPage> {
                       child: ElevatedButton(
                         onPressed: () {
                           widget.reminder.title = reminderEditController.text;
+                          widget.reminder.dateTime = DateTime.now();
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
