@@ -34,7 +34,7 @@ migrate_working_dir/
 /android/
 /ios/
 /windows/
-/web/
+/web
 
 # Symbolication related
 app.*.symbols
