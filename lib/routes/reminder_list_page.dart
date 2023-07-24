@@ -151,6 +151,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                                         ReminderTextPage(reminder: reminder),
                                   ),
                                 ).then((_) => setState(() {
+                                      reminderRepository.saveReminderList(reminders);
                                       reminders.sort((b, a) {
                                         return DateTime.parse(
                                                 (b.dateTime).toIso8601String())
