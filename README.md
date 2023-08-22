@@ -1,3 +1,3 @@
 # reminders_flutter
 
-Reminders mobile app.
+Reminders app.
