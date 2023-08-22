@@ -1,3 +1,3 @@
 # reminders_flutter
 
-Reminders app developed with Flutter.
+Reminders mobile app.
