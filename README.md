@@ -2,7 +2,7 @@
 
 ## Use the app
 
-### You can use the app in Windows by downloading just the "windows release" directory and running the "reminders_flutter.exe" file.
+You can use the app in Windows by downloading just the "windows release" directory and running the "reminders_flutter.exe" file.
 
 ## Running the project
 
