@@ -57,7 +57,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                         maxLines: 5,
                         controller: reminderController,
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(18),
+                          contentPadding: EdgeInsets.all(16),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5),
                           ),
@@ -66,19 +66,24 @@ class _ReminderListPageState extends State<ReminderListPage> {
                               color: Colors.yellow,
                               width: 2,
                             ),
+                            borderRadius:BorderRadius.circular(5)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(24)
                           ),
                           filled: true,
-                          fillColor: Color(0xffffffff).withOpacity(0.3),
+                          fillColor: Color(0xff17181c),
                           labelText: null,
-                          hintText: 'Adicione um lembrete',
+                          hintText: 'Add a reminder',
                           hintStyle: TextStyle(
-                            color: Color(0xffffffff).withOpacity(0.5),
+                            color: Color(0x55ffffff),
                           ),
                           errorText: errorText,
                         ),
-                        cursorColor: Color(0xffffffff).withOpacity(0.5),
+                        cursorColor: Color(0xffffffff),
                         style:
-                            TextStyle(fontSize: 18, color: Color(0xffffffff)),
+                            TextStyle(fontSize: 16, color: Color(0xffffffff)),
                       ),
                     ),
                     SizedBox(
@@ -91,7 +96,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                           String text = reminderController.text;
                           if (text.isEmpty) {
                             setState(() {
-                              errorText = 'Campo obrigatório';
+                              errorText = null;
                             });
                           } else {
                             setState(() {
@@ -105,7 +110,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff3a3a3a),
+                            backgroundColor: Color(0xff17181c),
                             fixedSize: Size.square(50)),
                         child: Icon(
                           Icons.add,
@@ -133,7 +138,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                                   onPressed: (context) {
                                     onDelete(reminder);
                                   },
-                                  backgroundColor: Color(0xFFFE4A49),
+                                  backgroundColor: Color(0xfffe4a49),
                                   icon: Icons.delete,
                                   borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(5),
@@ -161,7 +166,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                                     }));
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xff3a3a3a),
+                                backgroundColor: Color(0xff17181c),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(16),
@@ -174,7 +179,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                                           .format(reminder.dateTime),
                                       style: TextStyle(
                                         fontSize: 15,
-                                        color: Colors.white.withOpacity(0.7),
+                                        color: Color(0x55ffffff),
                                       ),
                                     ),
                                     Text(
@@ -197,15 +202,14 @@ class _ReminderListPageState extends State<ReminderListPage> {
                 SizedBox(height: 16),
                 Row(
                   children: [
-                    SizedBox(width: 8),
                     ElevatedButton(
                       onPressed: showDeleteAllConfirmationDialog,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff3a3a3a),
-                        padding: const EdgeInsets.all(18),
+                        backgroundColor: Color(0xff17181c),
+                        padding: const EdgeInsets.all(16),
                       ),
                       child: Text(
-                        'Limpar tudo',
+                        'Delete all',
                         style: TextStyle(
                           color: Colors.yellow,
                           fontSize: 18,
@@ -237,16 +241,16 @@ class _ReminderListPageState extends State<ReminderListPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          'Lembrete removido com sucesso',
+          'Reminder deleted',
           style: TextStyle(
             color: Color(0xffffffff).withOpacity(0.9),
             fontSize: 16,
           ),
         ),
         duration: Duration(seconds: 2),
-        backgroundColor: Color(0xff3a3a3a),
+        backgroundColor: Color(0xff17181c),
         action: SnackBarAction(
-          label: 'Desfazer',
+          label: 'Undo',
           textColor: Colors.yellow,
           onPressed: () {
             setState(() {
@@ -266,9 +270,9 @@ class _ReminderListPageState extends State<ReminderListPage> {
         builder: (context) => Padding(
           padding: const EdgeInsets.all(20),
           child: AlertDialog(
-            backgroundColor: Color(0xff3a3a3a),
+            backgroundColor: Color(0xff17181c),
             title: Text(
-              'Deletar permanentemente todos os lembretes?',
+              'Delete all reminders permanently?',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -283,7 +287,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                   foregroundColor: Colors.white,
                 ),
                 child: Text(
-                  'Cancelar',
+                  'Cancel',
                   style: TextStyle(),
                 ),
               ),
@@ -296,7 +300,7 @@ class _ReminderListPageState extends State<ReminderListPage> {
                   foregroundColor: Colors.red,
                 ),
                 child: Text(
-                  'Limpar tudo',
+                  'Delete all',
                   style: TextStyle(),
                 ),
               )
@@ -309,14 +313,14 @@ class _ReminderListPageState extends State<ReminderListPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            'Você não possui lembretes',
+            'You have no reminders',
             style: TextStyle(
               color: Color(0xffffffff).withOpacity(0.9),
               fontSize: 16,
             ),
           ),
           duration: Duration(seconds: 2),
-          backgroundColor: Color(0xff3a3a3a),
+          backgroundColor: Color(0xff17181c),
         ),
       );
     }

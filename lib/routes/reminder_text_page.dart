@@ -41,7 +41,7 @@ class _ReminderTextPageState extends State<ReminderTextPage> {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff3a3a3a),
+                            backgroundColor: Color(0xff17181c),
                             fixedSize: Size.square(50)),
                         child: Icon(
                           Icons.arrow_back_ios_rounded,
@@ -62,7 +62,7 @@ class _ReminderTextPageState extends State<ReminderTextPage> {
                       minLines: 1,
                       maxLines: 35,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(18),
+                        contentPadding: EdgeInsets.all(16),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
@@ -73,10 +73,10 @@ class _ReminderTextPageState extends State<ReminderTextPage> {
                           ),
                         ),
                         filled: true,
-                        fillColor: Color(0xffffffff).withOpacity(0.3),
+                        fillColor: Color(0xff17181c),
                       ),
-                      cursorColor: Color(0xffffffff).withOpacity(0.5),
-                      style: TextStyle(fontSize: 18, color: Color(0xffffffff)),
+                      cursorColor: Color(0xffffffff),
+                      style: TextStyle(fontSize: 16, color: Color(0xffffffff)),
                     ),
                   ),
                 ),
